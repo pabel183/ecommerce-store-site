@@ -6,7 +6,6 @@ import { Color, Size } from "@/types";
 import Button from "@/components/button";
 import { cn } from "@/lib/utils";
 import qs from "query-string";
-import { url } from "inspector";
 
 interface FilterProps{
     data: ( Size | Color )[];
