@@ -1,3 +1,4 @@
+import { STORE_API_URL } from "@/lib/api-url";
 import { Product } from "@/types";
 import queryString from "query-string";
 
@@ -8,7 +9,7 @@ interface Query{
     isFeatured?:boolean,
 }
 
-const URL=`${process.env.NEXT_PUBLIC_API_URL}/products`;
+const URL=`${STORE_API_URL}/products`;
 
 const getProducts=async(query:Query):Promise<Product[]>=>{
     const url= queryString.stringifyUrl({

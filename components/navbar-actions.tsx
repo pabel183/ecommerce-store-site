@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ShoppingBag } from "lucide-react";
@@ -6,31 +7,72 @@ import { ShoppingBag } from "lucide-react";
 import Button from "./button";
 import useCart from "@/hooks/use-cart";
 
-const NavbarActions=()=>{
-    const router=useRouter();
-    const cart=useCart();
-    const [isMount,setIsMount]=useState(false);
+const NavbarActions = () => {
+  const router = useRouter();
+  const cart = useCart();
+  const [isMounted, setIsMounted] = useState(false);
 
-    useEffect(()=>{
-        setIsMount(true);
-    },[]);
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
-    if(!isMount){
-        return null;
-    }
+  if (!isMounted) {
+    return null;
+  }
 
-    return(
-        <div className="ml-auto flex items-center gap-x-4">
-            <Button onClick={()=>router.push(`/cart`)} className="flex items-center rounded-full bg-black px-4 py-2">
-                <ShoppingBag 
-                size={20}
-                color="white"
-                />
-                <span className="ml-2 text-sm font-medium text-white">
-                    {cart.items.length}
-                </span>
-            </Button>
-        </div>
-    );
-}
+  return (
+    <div className="ml-auto flex items-center gap-x-4 shrink-0">
+      <Button
+        onClick={() => router.push(`/cart`)}
+        className="flex items-center rounded-full bg-slate-900 hover:bg-emerald-600 px-4 py-2 text-white transition-all duration-300 shadow-md shadow-slate-900/10 hover:shadow-emerald-600/20"
+      >
+        <ShoppingBag size={18} className="text-white" />
+        <span className="ml-2 text-xs font-semibold text-white">
+          {cart.items.length}
+        </span>
+      </Button>
+    </div>
+  );
+};
+
 export default NavbarActions;
+
+
+//Old Data
+
+// "use client";
+// import { useEffect, useState } from "react";
+// import { useRouter } from "next/navigation";
+// import { ShoppingBag } from "lucide-react";
+
+// import Button from "./button";
+// import useCart from "@/hooks/use-cart";
+
+// const NavbarActions=()=>{
+//     const router=useRouter();
+//     const cart=useCart();
+//     const [isMount,setIsMount]=useState(false);
+
+//     useEffect(()=>{
+//         setIsMount(true);
+//     },[]);
+
+//     if(!isMount){
+//         return null;
+//     }
+
+//     return(
+//         <div className="ml-auto flex items-center gap-x-4">
+//             <Button onClick={()=>router.push(`/cart`)} className="flex items-center rounded-full bg-black px-4 py-2">
+//                 <ShoppingBag 
+//                 size={20}
+//                 color="white"
+//                 />
+//                 <span className="ml-2 text-sm font-medium text-white">
+//                     {cart.items.length}
+//                 </span>
+//             </Button>
+//         </div>
+//     );
+// }
+// export default NavbarActions;

@@ -18,15 +18,19 @@ const PreviewModal=()=>{
             open={previewModal.isOpean}
             onClose={previewModal.onClose}
         >
-            <div className="grid grid-cols-1 w-full items-start gap-x-6 gap-y-8 sm:grid-cols-12 lg:gap-x-8">
-                <div className="sm:col-span-4 lg:col-span-5">
-                    <Gallery images={product.images} />
-                </div>
-                <div className="sm:col-span-8 lg:col-span-7">
-                    <Info data={product}/>
-                </div>
-            </div>
-        </Modal>
-    );
-}
+      <div className="grid w-full grid-cols-1 items-start gap-x-6 gap-y-8 sm:grid-cols-12 lg:gap-x-8 p-2 sm:p-4">
+        {/* Product Image Gallery */}
+        <div className="sm:col-span-4 lg:col-span-5">
+          <Gallery images={product.images} />
+        </div>
+
+        {/* Product Info & Details */}
+        <div className="sm:col-span-8 lg:col-span-7 flex flex-col justify-between h-full">
+          <Info data={product} />
+        </div>
+      </div>
+    </Modal>
+  );
+};
+
 export default PreviewModal;

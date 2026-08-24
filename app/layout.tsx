@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import {Urbanist} from "next/font/google";
+import { Urbanist } from "next/font/google";
 
 import "./globals.css";
 
@@ -7,8 +7,9 @@ import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import ModalProvider from "@/providers/modal-provider";
 import ToastProvider from "@/providers/toast-provider";
+import MottoBanner from "@/components/motto-banner";
 
-const font=Urbanist({subsets: ["latin"] })
+const font = Urbanist({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "Store",
@@ -28,6 +29,7 @@ export default function RootLayout({
         <ModalProvider />
         <ToastProvider />
         <Navbar />
+        <MottoBanner />
         {children}
         <Footer />
       </body>
